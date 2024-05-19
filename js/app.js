@@ -1,9 +1,5 @@
 const listaAmigos = [];
 
-function obterNumeroAleatorio(final, inicio) {
-    return Math.floor(Math.random() * (final - inicio + 1)) + inicio;
-}
-
 function adicionar() {
     let nomeAmigo = document.getElementById('nome-amigo').value;
 
@@ -25,7 +21,12 @@ function adicionar() {
 
 function sortear() {
     embaralhar(listaAmigos);
-    
+
+    if(listaAmigos.length <= 4){
+        alert('Adicione pelo menos 4 amigos');
+        return;
+    }
+
     let sorteio = document.getElementById('lista-sorteio');
 
     for(let i=0; i < listaAmigos.length ; i++){
@@ -38,7 +39,7 @@ function sortear() {
 }
 
 function embaralhar(lista) {
-    let indice = lista.length
+    let indice = lista.length;
     
     while(indice) {
         // atenção para o pós-incremento indice-- 
